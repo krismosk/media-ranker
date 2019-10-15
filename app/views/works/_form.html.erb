@@ -13,7 +13,7 @@
   
   <div class="field">
     <%= form.label :category %>
-    <%= form.select(:category, @cat_options)%>
+    <%= form.select :category, options_for_select([:album, :book, :movie], work.category)%>
   </div>
   
   <div class="field">

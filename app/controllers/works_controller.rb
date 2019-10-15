@@ -16,13 +16,14 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @cat_options = Work.all.map{ |w| [w.category]}.uniq!
-    
     @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
     end
+    # else
+    #   @cat_options = Work.all.map{ |w| [w.category]}.uniq!
+    # end
   end
 
   def create
