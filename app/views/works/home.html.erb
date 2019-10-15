@@ -1,7 +1,11 @@
 <%= render 'nav', work: @work %>
 <main>
   <section>
-    <h3>Spotlight</h3>
+    <h3>Media Spotlight</h3>
+    <% spotlight_work = Work.select_spotlight%>
+    <%= link_to spotlight_work.title, work_path(spotlight_work.id) %>
+    <%= "by: #{spotlight_work.creator}"%>
+    <p><%= "0 votes by User"%></p>
   </section>
   <section>
     <h3>Top Movies</h3>
