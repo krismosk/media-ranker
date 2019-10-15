@@ -9,31 +9,22 @@ class Work < ApplicationRecord
     return spotlight_work
   end
 
+  # pre-votes implementation
+  # TO-DO: add logic to deal with no records returned
   def self.select_top_ten(category)
-    # passing in a category symbol
-    # take that category and run a query to return
-    # 10 works of that cateogory in an array
     result = Work.where(category: category)
-    return result
+    # if there is less than 10 records in result, display all
+    if result.length < 10
+      return result
+    end 
 
-
-
-
-    # top_ten_works = []
-    # selected_work = nil
-    # 10.times do 
-    #   selected_work = Work.where(category: category)
-    #   # top_ten_works << selected_work
-    # end
-    # return selected_work
-    
-    
-    # top_ten_works = []
-    # 10.times do 
-    #   s
-    # end 
-
-    # return top_ten_works
+    # if there's more than 10 records in result
+    # find the excess and remove those records from result
+    if result.length > 10
+      excess_works = result.length - 10
+      new_result = result.drop(excess_works)
+      return new_result
+    end
   end
 
 
