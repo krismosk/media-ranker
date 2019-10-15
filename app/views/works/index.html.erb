@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Works</h1>
-
 <table>
   <thead>
     <tr>
@@ -12,6 +11,10 @@
   <tbody>
     <% @works.each do |work| %>
       <tr>
+        <td><%= work.category %></td>
+        <td><%= work.title %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.publication_year %></td>
         <td><%= link_to 'Show', work %></td>
         <td><%= link_to 'Edit', edit_work_path(work) %></td>
         <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,5 +24,5 @@
 </table>
 
 <br>
-
+<%= link_to 'View top media', root_path %>
 <%= link_to 'New Work', new_work_path %>
