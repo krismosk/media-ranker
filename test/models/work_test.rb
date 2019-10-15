@@ -69,12 +69,27 @@ describe Work do
     end
 
     it "must have a creator" do
+      @new_work.creator = nil 
+      
+      expect(@new_work.valid?).must_equal false
+      expect(@new_work.errors.messages).must_include :creator
+      expect(@new_work.errors.messages[:creator]).must_equal ["can't be blank"]
     end
 
     it "must have a publication year" do
+      @new_work.publication_year = nil 
+      
+      expect(@new_work.valid?).must_equal false
+      expect(@new_work.errors.messages).must_include :publication_year
+      expect(@new_work.errors.messages[:publication_year]).must_equal ["can't be blank"]
     end 
 
     it "must have a description" do
+      @new_work.description = nil 
+      
+      expect(@new_work.valid?).must_equal false
+      expect(@new_work.errors.messages).must_include :description
+      expect(@new_work.errors.messages[:description]).must_equal ["can't be blank"]
     end
   end
 
