@@ -16,9 +16,13 @@
     <tbody>
       <% @works.each do |work| %>
         <% if work.category = "album"%>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
           <tr>
             <td><%= work.category %></td>
-            <td><%= work.title %></td>
+            <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
             <td><%= link_to 'Show', work %></td>
@@ -43,9 +47,13 @@
     <tbody>
       <% @works.each do |work| %>
         <% if work.category = "book"%>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
           <tr>
             <td><%= work.category %></td>
-            <td><%= work.title %></td>
+            <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
             <td><%= link_to 'Show', work %></td>
@@ -70,9 +78,13 @@
     <tbody>
       <% @works.each do |work| %>
         <% if work.category = "movie"%>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
           <tr>
             <td><%= work.category %></td>
-            <td><%= work.title %></td>
+            <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
             <td><%= link_to 'Show', work %></td>
