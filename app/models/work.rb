@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
   has_many :votes
   validates :category, :creator, :publication_year, :description, presence: true
-  vaidates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true
 end
