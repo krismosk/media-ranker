@@ -10,6 +10,31 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select(:category, @cat_options)%>
+  </div>
+  
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :creator%>
+    <%= form.text_field :creator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publication_year%>
+    <%= form.text_field :publication_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description%>
+    <%= form.text_field :description %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

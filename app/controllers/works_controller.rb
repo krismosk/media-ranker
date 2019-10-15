@@ -16,6 +16,8 @@ class WorksController < ApplicationController
   end
 
   def edit
+    @cat_options = Work.all.map{ |w| [w.category]}.uniq!
+    
     @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
@@ -36,6 +38,12 @@ class WorksController < ApplicationController
   end
 
   def update
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+      return
+    end
+    
     respond_to do |format|
       if @work.update(work_params)
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }

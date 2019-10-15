@@ -1,4 +1,17 @@
+<%= render 'nav', work: @work %>
 <p id="notice"><%= notice %></p>
+<main>
+  <section>
+    <h3><%= @work.title %></h3>
+    <p><%= "Created by: #{@work.creator}" %></p>
+    <p><%= "Published: #{@work.publication_year}" %></p>
+    <%= link_to 'Back to media ranks', root_path %> |
+    <%= link_to 'Edit', edit_work_path(@work) %> |
+    <%= link_to 'Destroy', @work, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+  </section>
+
+
+
+</main>
+
