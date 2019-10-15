@@ -13,6 +13,10 @@ class Work < ApplicationRecord
   # TO-DO: add logic to deal with no records returned
   def self.select_top_ten(category)
     result = Work.where(category: category)
+    if result.nil?
+      return nil
+    end
+    
     # if there is less than 10 records in result, display all
     if result.length < 10
       return result

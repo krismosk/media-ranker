@@ -10,37 +10,49 @@
 
   <section>
     <h3>Top Movies</h3>
-    <ul>
-    <% Work.select_top_ten(:movie).each do |work| %>
-      <li><%= link_to work.title, work_path(work.id) %>
-      <%= "by #{work.creator}" %>
-      <p><%= "0 votes"%></p>
-      </li>
+    <ol>
+    <% if Work.select_top_ten(:movie).nil? %>
+      <%= No works of this type %>
+    <% else %>
+      <% Work.select_top_ten(:movie).each do |work| %>
+        <li><%= link_to work.title, work_path(work.id) %>
+        <%= "by #{work.creator}" %>
+        <p><%= "0 votes"%></p>
+        </li>
+      <% end %>
     <% end %>
-    <ul>
+    <ol>
   </section>
 
   <section>
     <h3>Top Books</h3>
-    <ul>
-    <% Work.select_top_ten(:book).each do |work| %>
-      <li><%= link_to work.title, work_path(work.id) %>
-      <%= "by #{work.creator}" %>
-      <p><%= "0 votes"%></p>
-      </li>
+    <ol>
+    <% if Work.select_top_ten(:book).nil? %>
+      <%= No works of this type %>
+    <% else %>
+      <% Work.select_top_ten(:book).each do |work| %>
+        <li><%= link_to work.title, work_path(work.id) %>
+        <%= "by #{work.creator}" %>
+        <p><%= "0 votes"%></p>
+        </li>
+      <% end %>
     <% end %>
-    <ul>
+    <ol>
   </section>
 
   <section>
     <h3>Top Albums</h3>
-    <ul>
-    <% Work.select_top_ten(:album).each do |work| %>
-      <li><%= link_to work.title, work_path(work.id) %>
-      <%= "by #{work.creator}" %>
-      <p><%= "0 votes"%></p>
-      </li>
+    <ol>
+    <% if Work.select_top_ten(:album).nil? %>
+      <%= No works of this type %>
+    <% else %>
+      <% Work.select_top_ten(:album).each do |work| %>
+        <li><%= link_to work.title, work_path(work.id) %>
+        <%= "by #{work.creator}" %>
+        <p><%= "0 votes"%></p>
+        </li>
+      <% end %>
     <% end %>
-    <ul>
+    <ol>
   </section>
 </main>
