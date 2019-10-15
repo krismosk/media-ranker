@@ -2,11 +2,32 @@ require "test_helper"
 
 describe Work do
   it "can be instantiated" do
+    new_work = Work.create(
+      category: "movie",
+      title: "Little Ladies",
+      creator: "Benedict Sadat",
+      publication_year: 1994,
+      description: "Persistent even-keeled toolset",
+      )
+    expect(new_work.valid?).must_equal true
   end
 
   it "will have the required fields" do
+    new_work = Work.create(
+      category: "movie",
+      title: "Little Ladies",
+      creator: "Benedict Sadat",
+      publication_year: 1994,
+      description: "Persistent even-keeled toolset",      
+    )
+    
+    work = Work.first
+    [:category, :title, :creator, :publication_year, :description].each do |field|
+      expect(work).must_respond_to field
+    end
   end
 
+  # TO-DO: FILL IN FOR WAVE 2
   describe "relationships" do
     it "can have many votes" do
     end 
