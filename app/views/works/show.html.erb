@@ -7,8 +7,11 @@
     <p><%= "Published: #{@work.publication_year}" %></p>
     <%= link_to 'Back to media ranks', root_path %> |
     <%= link_to 'Edit', edit_work_path(@work) %> |
-    <%= link_to 'Destroy', @work, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+    <%= "Upvote "%> | 
+    <%= link_to 'Delete', @work, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </section>
+  <section>
+    <h3><%= "Votes for this #{@work.category}"%></h3>
   </section>
 
 
