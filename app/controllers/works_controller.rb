@@ -21,9 +21,6 @@ class WorksController < ApplicationController
       head :not_found
       return
     end
-    # else
-    #   @cat_options = Work.all.map{ |w| [w.category]}.uniq!
-    # end
   end
 
   def create

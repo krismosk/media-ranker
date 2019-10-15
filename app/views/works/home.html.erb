@@ -7,13 +7,40 @@
     <%= "by: #{spotlight_work.creator}"%>
     <p><%= "0 votes by User"%></p>
   </section>
+
   <section>
     <h3>Top Movies</h3>
+    <ul>
+    <% Work.select_top_ten(:movie).each do |work| %>
+      <li><%= link_to work.title, work_path(work.id) %>
+      <%= "by #{work.creator}" %>
+      <p><%= "0 votes"%></p>
+      </li>
+    <% end %>
+    <ul>
   </section>
-    <section>
+
+  <section>
     <h3>Top Books</h3>
+    <ul>
+    <% Work.select_top_ten(:book).each do |work| %>
+      <li><%= link_to work.title, work_path(work.id) %>
+      <%= "by #{work.creator}" %>
+      <p><%= "0 votes"%></p>
+      </li>
+    <% end %>
+    <ul>
   </section>
-    <section>
+
+  <section>
     <h3>Top Albums</h3>
+    <ul>
+    <% Work.select_top_ten(:album).each do |work| %>
+      <li><%= link_to work.title, work_path(work.id) %>
+      <%= "by #{work.creator}" %>
+      <p><%= "0 votes"%></p>
+      </li>
+    <% end %>
+    <ul>
   </section>
 </main>
