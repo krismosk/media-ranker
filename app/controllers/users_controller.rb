@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as returing user #{username}"
     else
-      @user = User.create(username: username)
+      @user = User.create(username: username, joined_date: Time.now)
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as new user #{username}"
     end
