@@ -93,24 +93,40 @@ describe Work do
     end
   end
 
+  describe "custom methods" do
+    describe "#select_spotlight" do
+      it "returns a randomly selected media" do
+        spotlight_media = Work.select_spotlight
+      
+        expect(spotlight_media).must_be_instance_of Work
+      end
+    end
+
+    describe "#select_top_ten" do
+      it "returns nil if no works of that category" do
+        result = Work.select_top_ten(:song)
+        expect(result).must_be_nil
+      end
+
+      it "returns the entire list of works if less than 10 of that type" do
+        result = Work.select_top_ten(:movie)
+        expect(result.length).must_equal 3
+      end 
+
+      it "returns only 10 works if there is more than 10 works of that type" do
+        result = Work.select_top_ten(:book)
+        expect(result.length).must_equal 10
+      end 
+
+
+    end
+  end
+
   # TO-DO: FILL IN FOR WAVE 2
   describe "relationships" do
     it "can have many votes" do
       # fill in for wave 2
     end 
   end 
-
-  describe "custom methods" do
-    describe "#select_spotlight" do
-      it "return a randomly selected media" do
-      end
-    end
-
-    describe "#select_top_ten" do
-      # add it blocks for nominal and edge cases
-    end
-  end
-
-
 
 end

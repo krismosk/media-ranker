@@ -13,7 +13,7 @@ class Work < ApplicationRecord
   # TO-DO: add logic to deal with no records returned
   def self.select_top_ten(category)
     result = Work.where(category: category)
-    if result.nil?
+    if result.empty?
       return nil
     end
     

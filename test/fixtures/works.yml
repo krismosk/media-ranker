@@ -38,6 +38,60 @@ glass:
   creator: Oren Aggas
   publication_year: 2000
   description: Business-focused coherent functionalities
+simone:
+  category: book
+  title: What Happened, Miss Simone?
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+torture:
+  category: book
+  title: Conspiracy of Torture
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+tommy:
+  category: book
+  title: Tommy
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+dracula:
+  category: book
+  title: Dracula
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+rally:
+  category: book
+  title: Rally 'Round the Flag, Boys!  
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+lessons:
+  category: book
+  title: Private Lessons   
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+kart:
+  category: book
+  title: Kart Racer
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+voice:
+  category: book
+  title: I Know That Voice
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
+sorceress:
+  category: book
+  title: Sorceress
+  creator: Oren Aggas
+  publication_year: 2000
+  description: Business-focused coherent functionalities
 
 # albums
 peyton:
