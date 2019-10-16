@@ -6,9 +6,9 @@ class WorksController < ApplicationController
   end
 
   def show
-    # @work = Work.find_by(id: params[:id])
     if @work.nil?
-      head :not_found
+      flash[:error] = "Work doesn't exist"
+      redirect_to root_path
       return
     end
   end
@@ -18,9 +18,9 @@ class WorksController < ApplicationController
   end
 
   def edit
-    # @work = Work.find_by(id: params[:id])
     if @work.nil?
-      head :not_found
+      flash[:error] = "Can't edit work that doesn't exist"
+      redirect_to works_path
       return
     end
   end
@@ -28,41 +28,39 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
 
-    respond_to do |format|
-      if @work.save
-        format.html { redirect_to @work, notice: 'Work was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @work.save
+      flash[:success] = 'Work was successfully created.'
+      redirect_to @work
+    else
+      flash[:error] = 'Oops! Something went wrong.'
+      render :new
     end
   end
 
   def update
-    # @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
     end
-    
-    respond_to do |format|
-      if @work.update(work_params)
-        format.html { redirect_to @work, notice: 'Work was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+
+    if @work.update(work_params)
+      flash[:success] = 'Work was successfully updated.'
+      redirect_to @work
+    else
+      flash[:error] = 'Oops! Something went wrong.'
+      render :edit
     end
   end
 
   def destroy
-    # @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
       return
     end
     
-    @work.destroy
-    respond_to do |format|
-      format.html { redirect_to works_url, notice: 'Work was successfully destroyed.' }
+    if @work.destroy
+      flash[:success] = 'Work was successfully destroyed.'
+      redirect_to works_path
     end
   end
 

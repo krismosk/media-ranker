@@ -19,7 +19,12 @@
       <li><%= link_to 'View all users', users_path %></li>
       <p>Login</p>
     </ul>
-  </nav>   
+  </nav> 
+  <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>  
     <%= yield %>
   </body>
 </html>
