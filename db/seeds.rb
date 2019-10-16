@@ -31,11 +31,12 @@ user_failures = []
 CSV.foreach(USER_FILE, :headers => true) do |row|
   user = User.new
   user.username = row['username']
-  user.joined_date = Date.strptime(row['date'], '%mm/%dd/%yyyy')
+  user.joined_date = row['joined_date']
   successful = user.save
   if !successful
     user_failures << user
     puts "Failed to save user: #{user.inspect}"
+    puts "FAILED USER ERROR: #{user.errors.messages}"
   else
     puts "Created user: #{user.inspect}"
   end
@@ -51,13 +52,14 @@ puts "Loading raw vote data from #{VOTE_FILE}"
 vote_failures = []
 CSV.foreach(VOTE_FILE, :headers => true) do |row|
   vote = Vote.new
-  vote.date = Date.strptime(row['date'], '%mm/%dd/%yyyy')
+  vote.date = row['date']
   vote.user_id = row['user_id']
   vote.work_id = row['work_id']
   successful = vote.save
   if !successful
     vote_failures << vote
     puts "Failed to save vote: #{vote.inspect}"
+    puts "FAILED VOTE ERROR: #{vote.errors.messages}"
   else
     puts "Created vote: #{vote.inspect}"
   end
