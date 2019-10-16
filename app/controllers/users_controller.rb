@@ -9,7 +9,11 @@ class UsersController < ApplicationController
       head :not_found
       return
     end
-  end 
+  end
+
+  def login_form
+    @user = User.new
+  end
 
 
 end
