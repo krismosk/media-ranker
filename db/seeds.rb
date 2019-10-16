@@ -1,7 +1,7 @@
 require 'csv'
 
 WORK_FILE = Rails.root.join('db', 'seed_data', 'works.csv')
-puts "Loading raw driver data from #{WORK_FILE}"
+puts "Loading raw work data from #{WORK_FILE}"
 
 work_failures = []
 CSV.foreach(WORK_FILE, :headers => true) do |row|
@@ -25,13 +25,13 @@ puts "#{work_failures.length} works failed to save"
 
 # seed users
 USER_FILE = Rails.root.join('db', 'seed_data', 'users.csv')
-puts "Loading raw driver data from #{USER_FILE}"
+puts "Loading raw user data from #{USER_FILE}"
 
 user_failures = []
 CSV.foreach(USER_FILE, :headers => true) do |row|
   user = User.new
   user.username = row['username']
-  user.joined_date = row['joined_date']
+  user.joined_date = Date.strptime(row['date'], '%mm/%dd/%yyyy')
   successful = user.save
   if !successful
     user_failures << user
@@ -45,3 +45,31 @@ puts "Added #{User.count} user records"
 puts "#{user_failures.length} users failed to save"
 
 # seed votes
+VOTE_FILE = Rails.root.join('db', 'seed_data', 'votes.csv')
+puts "Loading raw vote data from #{VOTE_FILE}"
+
+vote_failures = []
+CSV.foreach(VOTE_FILE, :headers => true) do |row|
+  vote = Vote.new
+  vote.date = Date.strptime(row['date'], '%mm/%dd/%yyyy')
+  vote.user_id = row['user_id']
+  vote.work_id = row['work_id']
+  successful = vote.save
+  if !successful
+    vote_failures << vote
+    puts "Failed to save vote: #{vote.inspect}"
+  else
+    puts "Created vote: #{vote.inspect}"
+  end
+end
+
+puts "Added #{Vote.count} vote records"
+puts "#{vote_failures.length} votes failed to save"
+
+# uncomment if errors with duplicate primary keys
+# puts "Manually resetting PK sequence on each table"
+# ActiveRecord::Base.connection.tables.each do |t|
+#   ActiveRecord::Base.connection.reset_pk_sequence!(t)
+# end
+
+# puts "done"
