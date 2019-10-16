@@ -61,6 +61,9 @@ class WorksController < ApplicationController
     if @work.destroy
       flash[:success] = 'Work was successfully destroyed.'
       redirect_to works_path
+    else
+      flash[:error] = 'Oops! Something went wrong.'
+      redirect_to works_path
     end
   end
 
