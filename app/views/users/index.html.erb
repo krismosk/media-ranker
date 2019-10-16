@@ -15,7 +15,7 @@
         <th>Joined</th>
         <tr>
           <td><%= link_to user.username, user_path(user.id) %></td>
-          <td><%= 0 %></td>
+          <td><%= user.votes.length %></td>
           <td><%= user.joined_date %></td>
         </tr>
       <% end %>
