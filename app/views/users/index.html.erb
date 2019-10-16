@@ -1,1 +1,36 @@
+<main>
+<h2>List of Users</h2>
+  <section>
+    <table>
+    <thead>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <% @users.each do |user| %>
+        <th>Username</th>
+        <th>Votes</th>
+        <th>Joined</th>
+        <tr>
+          <td><%= link_to user.username, user_path(user.id) %></td>
+          <td><%= 0 %></td>
+          <td><%= user.joined_date %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Back to top media', root_path %>
+  </section>
+
+
+
+
+
+
+
+
+
+
+</main>
