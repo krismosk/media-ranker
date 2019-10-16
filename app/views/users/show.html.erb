@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<main>
+  <section>
+    <h3><%= "User Summary: #{@user.username}"  %></h3>
+    <p><%= "Joined site #{@user.joined_date}" %></p>
+  </section>
+  
+  <section>
+    <table>
+    <thead>
+      <h3>Votes</h3>
+      <tr></tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <th>Media Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Category</th>
+      <th>Voted On</th>
+    </tbody>
+    </table>
+  </section>
+  
+  <section>
+    <%= link_to 'See all Users', users_path %> |
+    <%= link_to 'Back to media list', root_path %>
+  </section>
+</main>
