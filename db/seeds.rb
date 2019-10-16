@@ -67,11 +67,3 @@ end
 
 puts "Added #{Vote.count} vote records"
 puts "#{vote_failures.length} votes failed to save"
-
-# uncomment if errors with duplicate primary keys
-# puts "Manually resetting PK sequence on each table"
-# ActiveRecord::Base.connection.tables.each do |t|
-#   ActiveRecord::Base.connection.reset_pk_sequence!(t)
-# end
-
-# puts "done"
