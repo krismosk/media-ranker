@@ -5,7 +5,7 @@
     <% spotlight_work = Work.select_spotlight%>
     <%= link_to spotlight_work.title, work_path(spotlight_work.id) %>
     <%= "by: #{spotlight_work.creator}"%>
-    <p><%= "0 votes by User"%></p>
+    <p><%= spotlight_work.votes.length %> votes</p>
   </section>
 
   <section>
@@ -17,7 +17,7 @@
       <% Work.select_top_ten(:movie).each do |work| %>
         <li><%= link_to work.title, work_path(work.id) %>
         <%= "by #{work.creator}" %>
-        <p><%= "0 votes"%></p>
+        <p><%= work.votes.length %> votes</p>
         </li>
       <% end %>
     <% end %>
@@ -33,7 +33,7 @@
       <% Work.select_top_ten(:book).each do |work| %>
         <li><%= link_to work.title, work_path(work.id) %>
         <%= "by #{work.creator}" %>
-        <p><%= "0 votes"%></p>
+        <p><%= work.votes.length %> votes</p>
         </li>
       <% end %>
     <% end %>
@@ -49,7 +49,7 @@
       <% Work.select_top_ten(:album).each do |work| %>
         <li><%= link_to work.title, work_path(work.id) %>
         <%= "by #{work.creator}" %>
-        <p><%= "0 votes"%></p>
+        <p><%= work.votes.length %> votes</p>
         </li>
       <% end %>
     <% end %>
