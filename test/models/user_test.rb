@@ -1,7 +1,53 @@
 require "test_helper"
 
 describe User do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  it "can be instantiated" do
+    user = User.create(
+      username: "kmosk",
+      joined_date: Time.now,
+      )
+    expect(user.valid?).must_equal true
+  end
+
+  it "will have the required fields" do
+    user = User.create(
+      username: "kmosk",
+      joined_date: Time.now,
+      )
+
+    user = User.first
+    [:username, :joined_date].each do |field|
+      expect(user).must_respond_to field
+    end
+  end
+
+  describe "validations" do
+    before do
+      @user = User.create(
+        username: "kmosk",
+        joined_date: Time.now,
+        )
+    end
+    
+    it "must have a username" do
+      @user.username = nil
+      expect(@user.valid?).must_equal false
+      expect(@user.errors.messages).must_include :username
+      expect(@user.errors.messages[:username]).must_equal ["can't be blank"]
+    end
+
+    it "must have a joined_date" do
+      @user.joined_date = nil
+      expect(@user.valid?).must_equal false
+      expect(@user.errors.messages).must_include :joined_date
+      expect(@user.errors.messages[:joined_date]).must_equal ["can't be blank"]
+    end
+
+
+
+
+
+  end
+
+  
 end
