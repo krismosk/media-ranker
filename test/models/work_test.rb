@@ -97,7 +97,6 @@ describe Work do
     describe "#select_spotlight" do
       it "returns a work with the highest votes" do
         spotlight_media = Work.select_spotlight
-        # create 3 votes for 2 works, one has 2 votes and one has 1 votes
         expect(spotlight_media).must_be_instance_of Work
         expect(spotlight_media.title).must_equal "Flickering Lights"
       end
