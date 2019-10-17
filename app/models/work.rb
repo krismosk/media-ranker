@@ -5,6 +5,8 @@ class Work < ApplicationRecord
 
   # pre-votes implementation
   def self.select_spotlight
+    # works.max_by
+    # works.vount.count
     spotlight_work = Work.all.sample
     return spotlight_work
   end
@@ -13,6 +15,14 @@ class Work < ApplicationRecord
   # TO-DO: add logic to deal with no records returned
   def self.select_top_ten(category)
     result = Work.where(category: category)
+    # if result = []
+    # return result
+    # else
+    # works.sort_by do |work|
+    #  -work.votes.count
+    # end
+
+    # use .take(10) to pick the top 10
     if result.empty?
       return nil
     end
