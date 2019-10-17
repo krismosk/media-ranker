@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: username)
     if @user
       session[:user_id] = @user.id
-      flash[:success] = "Successfully logged in as returing user #{username}"
+      flash[:success] = "Successfully logged in as returning user #{username}"
     else
       @user = User.create(username: username, joined_date: Time.now)
       session[:user_id] = @user.id

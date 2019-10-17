@@ -18,11 +18,17 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
           <tr>
             <td><%= work.votes.count %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
+            <td>
+            <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+              <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+            <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>
@@ -46,11 +52,18 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
           <tr>
             <td><%= work.votes.count %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
+            <td>
+            <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+              <%= f.label "Upvote" %>
+              <%= f.check_box :upvote, { onchange: 'this.form.submit();' } %>
+            <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>
@@ -74,11 +87,18 @@
           <th>Title</th>
           <th>Created By</th>
           <th>Published</th>
+          <th>Upvote</th>
           <tr>
             <td><%= work.votes.count %></td>
             <td><%= link_to work.title, work_path(work.id) %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
+            <td>
+            <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
+              <%= f.label "Upvote" %>
+              <%= f.check_box :upvote, { onchange: 'this.form.submit();' } %>
+            <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>

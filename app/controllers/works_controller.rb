@@ -67,6 +67,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    work = Work.find_by(id: params[:id])
+    current_user = User.find_by(id: session[:user_id])
+    @vote = Vote.create(date: Time.now, user_id: current_user.id, work_id: work.id)
+    if @vote.save
+      flash[:success] = "Successfully upvoted."
+      redirect_to work_path
+    end
+  end 
+
   private
 
   def find_work
