@@ -88,10 +88,31 @@ describe Vote do
   end
 
   describe "relationships" do
+    before do
+      @user = User.create(
+        username: "kmosk",
+        joined_date: Time.now,
+      )
+      @work = Work.create(
+        category: "movie",
+        title: "Little Ladies",
+        creator: "Benedict Sadat",
+        publication_year: 1994,
+        description: "Persistent even-keeled toolset",
+        )
+      @vote = Vote.create(
+        date: Time.now,
+        user_id: @user.id,
+        work_id: @work.id, 
+      )
+    end
+    
     it "belongs to a user" do
+      assert_not_nil(@vote.user_id)
     end
 
     it "belongs to a work" do
+      assert_not_nil(@vote.work_id)
     end
   end
 
