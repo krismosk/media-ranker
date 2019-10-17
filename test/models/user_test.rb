@@ -42,12 +42,37 @@ describe User do
       expect(@user.errors.messages).must_include :joined_date
       expect(@user.errors.messages[:joined_date]).must_equal ["can't be blank"]
     end
-
-
-
-
-
   end
+
+  describe "relationships" do
+    it "has many votes" do
+      @user = User.create(
+        username: "kmosk",
+        joined_date: Time.now,
+        )
+      
+      @user = User.first
+      @work = Work.create(
+        category: "movie",
+        title: "Little Ladies",
+        creator: "Benedict Sadat",
+        publication_year: 1994,
+        description: "Persistent even-keeled toolset",
+        )
+      @vote = Vote.create(
+        date: Time.now,
+        user_id: @user.id,
+        work_id: @work.id, 
+      )
+
+      # Assert
+      expect(@user.votes.count).must_be :>, 0
+      @user.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+
+  end 
 
   
 end
