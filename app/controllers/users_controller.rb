@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:show]
+
   def index
     @users = User.all
   end
@@ -50,4 +52,11 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+
+  private
+
+  def find_user
+    @user= User.find_by(id: params[:id])
+  end 
 end
