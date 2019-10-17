@@ -122,10 +122,29 @@ describe Work do
     end
   end
 
-  # TO-DO: FILL IN FOR WAVE 2
   describe "relationships" do
     it "can have many votes" do
-      # fill in for wave 2
+      @user = User.create(
+        username: "kmosk",
+        joined_date: Time.now,
+        )
+      @work = Work.create(
+        category: "movie",
+        title: "Little Ladies",
+        creator: "Benedict Sadat",
+        publication_year: 1994,
+        description: "Persistent even-keeled toolset",
+        )
+      @vote = Vote.create(
+        date: Time.now,
+        user_id: @user.id,
+        work_id: @work.id, 
+      )
+
+      expect(@work.votes.count).must_be :>, 0
+      @work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
     end 
   end 
 

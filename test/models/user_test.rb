@@ -50,7 +50,6 @@ describe User do
         username: "kmosk",
         joined_date: Time.now,
         )
-      
       @user = User.first
       @work = Work.create(
         category: "movie",
@@ -65,7 +64,6 @@ describe User do
         work_id: @work.id, 
       )
 
-      # Assert
       expect(@user.votes.count).must_be :>, 0
       @user.votes.each do |vote|
         expect(vote).must_be_instance_of Vote
