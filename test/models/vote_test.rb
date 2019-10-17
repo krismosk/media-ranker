@@ -1,7 +1,32 @@
 require "test_helper"
 
 describe Vote do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  it "can be instantiated" do 
+  end 
+
+  it "will have the required fields" do
+  end 
+
+  describe "validations" do
+    it "must have a date" do
+    end
+
+    it "must have a user" do
+    end
+
+    it "must have a work" do
+    end
+  end
+
+  describe "relationships" do
+    it "belongs to a user" do
+    end
+
+    it "belongs to a work" do
+    end
+  end
+
+
+
+
 end
