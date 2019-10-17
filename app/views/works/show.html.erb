@@ -7,7 +7,9 @@
     <p><%= @work.description %></p>
     <%= link_to 'Back to media ranks', root_path %> |
     <%= link_to 'Edit', edit_work_path(@work) %> |
-    <%= "Upvote "%> | 
+    <%= form_with model: @works, url: "/works/#{@work.id}/upvote", method: :post do |f| %>
+      <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
+    <% end %>
     <%= link_to 'Delete', @work, method: :delete, data: { confirm: 'Are you sure?' } %>
   </section>
 
