@@ -7,7 +7,9 @@ class Work < ApplicationRecord
   def self.select_spotlight
     # works.max_by
     # works.vount.count
-    spotlight_work = Work.all.sample
+    works = Work.all
+    spotlight_work = works.max_by { |work| work.votes.length }
+
     return spotlight_work
   end
 
