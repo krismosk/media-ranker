@@ -1,5 +1,7 @@
-<h1>New Work</h1>
+<main>
+ <h2>Add a new work</h2>
+  <%= render 'form', work: @work %>
+  <%= link_to 'Back', works_path %>
+</main>
 
-<%= render 'form', work: @work %>
 
-<%= link_to 'Back', works_path %>
