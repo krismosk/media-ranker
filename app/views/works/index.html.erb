@@ -62,8 +62,7 @@
               <td><%= work.publication_year %></td>
               <td>
               <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
-                <%= f.label "Upvote" %>
-                <%= f.check_box :upvote, { onchange: 'this.form.submit();' } %>
+                <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
               <% end %>
               </td>
             </tr>
@@ -98,8 +97,7 @@
               <td><%= work.publication_year %></td>
               <td>
               <%= form_with model: @works, url: "/works/#{work.id}/upvote", method: :post do |f| %>
-                <%= f.label "Upvote" %>
-                <%= f.check_box :upvote, { onchange: 'this.form.submit();' } %>
+                <%= f.submit :upvote, { onchange: 'this.form.submit();' } %>
               <% end %>
               </td>
             </tr>

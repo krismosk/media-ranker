@@ -10,7 +10,7 @@
 
   <section>
     <h3>Top Movies</h3>
-    <ol>
+    <ul>
     <% if Work.select_top_ten(:movie).nil? %>
       <%= No works of this type %>
     <% else %>
@@ -21,12 +21,12 @@
         </li>
       <% end %>
     <% end %>
-    <ol>
+    <ul>
   </section>
 
   <section>
     <h3>Top Books</h3>
-    <ol>
+    <ul>
     <% if Work.select_top_ten(:book).nil? %>
       <%= No works of this type %>
     <% else %>
@@ -37,12 +37,12 @@
         </li>
       <% end %>
     <% end %>
-    <ol>
+    <ul>
   </section>
 
   <section>
     <h3>Top Albums</h3>
-    <ol>
+    <ul>
     <% if Work.select_top_ten(:album).nil? %>
       <%= No works of this type %>
     <% else %>
@@ -53,6 +53,6 @@
         </li>
       <% end %>
     <% end %>
-    <ol>
+    <ul>
   </section>
 </main>
