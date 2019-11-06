@@ -15,8 +15,6 @@ class UsersController < ApplicationController
 
   def create
     auth_hash = request.env["omniauth.auth"]
-    p "CAT BOMB"
-    p auth_hash[:info]
     user = User.find_by(uid: auth_hash[:uid], provider: "github")
     # Check if there's a User record matching the uid and provider credentials in DB
     if user
